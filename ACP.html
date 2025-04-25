@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>JavaScript CallBacks</h2>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <p id="result4"></p>
+
+    <script>
+      function myDisplayer1(value) {
+        document.getElementById("result1").innerHTML = "Addition: " + value;
+      }
+
+      function myDisplayer2(value) {
+        document.getElementById("result2").innerHTML = "Subtraction: " + value;
+      }
+
+      function myDisplayer3(value) {
+        document.getElementById("result3").innerHTML =
+          "Multiplication: " + value;
+      }
+
+      function myDisplayer4(value) {
+        document.getElementById("result4").innerHTML = "Division: " + value;
+      }
+
+      function myCalculator(num1, num2, mycallback) {
+        let result = mycallback(num1, num2);
+        return result;
+      }
+
+      function add(a, b) {
+        return a + b;
+      }
+
+      function subtract(a, b) {
+        return a - b;
+      }
+
+      function multiply(a, b) {
+        return a * b;
+      }
+
+      function divide(a, b) {
+        return b !== 0 ? a / b : "Cannot divide by zero";
+      }
+
+      myDisplayer1(myCalculator(10, 5, add));
+      myDisplayer2(myCalculator(10, 5, subtract));
+      myDisplayer3(myCalculator(10, 5, multiply));
+      myDisplayer4(myCalculator(10, 5, divide));
+    </script>
+  </body>
+</html>
